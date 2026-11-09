@@ -435,7 +435,19 @@
     const lane=KEYS.indexOf(event.code);
     if (lane>=0) {
       pressed[lane]=false;
-      if (activeHolds[lane]) breakHold(lane);
+      const hold=activeHolds[lane];
+      if (hold) {
+        const elapsed=(performance.now()-startAt)/1000;
+        if (elapsed >= hold.endT) {
+          hold.done=true;
+          hold.started=false;
+          activeHolds[lane]=null;
+          const judgement=WINDOWS.find(item=>hold.startDelta<=activeJudgeWindow(item.edge));
+          registerJudgement(judgement.name);
+        } else {
+          breakHold(lane);
+        }
+      }
     }
   });
   window.addEventListener("blur",()=>{
