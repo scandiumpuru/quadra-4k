@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080b16">
+<title>QUADRA — FOUR KEYS. ONE FLOW.</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--panel:#101629;--line:#252e49;--muted:#8994ad;--text:#f4f6ff;--cyan:#75e4f4;--violet:#a78bfa;--pink:#ff82ad}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{background:radial-gradient(ellipse at 50% 0%,#17213b 0%,#080b16 58%);min-height:100vh}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+#selectScreen{max-width:1120px;margin:0 auto;padding:clamp(24px,5vw,64px) clamp(18px,4vw,44px) 48px}
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:58px}
+.brand-mark{width:42px;height:42px;border:1px solid #60708f;border-radius:12px;display:grid;place-items:center;color:var(--cyan);font-weight:900;letter-spacing:-3px;font-size:20px;box-shadow:inset 0 0 22px #75e4f422}
+.brand-name{font-size:15px;font-weight:850;letter-spacing:.22em}
+.brand-tag{font-size:10px;letter-spacing:.2em;color:var(--muted);margin-top:4px}
+.eyebrow{font-size:11px;letter-spacing:.24em;color:var(--cyan);font-weight:800}
+h1{font-size:clamp(34px,6vw,62px);line-height:1.08;letter-spacing:-.045em;margin:14px 0 12px}
+.lead{color:#aeb8ce;font-size:14px;line-height:1.8;margin:0 0 36px}
+.content-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:18px;align-items:stretch}
+.panel{background:linear-gradient(145deg,#141c31f2,#0e1425f2);border:1px solid #293450;border-radius:20px;padding:clamp(20px,3vw,30px);box-shadow:0 20px 60px #0003}
+.panel-label{font-size:10px;letter-spacing:.2em;color:var(--muted);font-weight:800;margin-bottom:20px}
+.track{display:flex;gap:22px;align-items:center}
+.cover{width:142px;aspect-ratio:1;border-radius:16px;flex:none;position:relative;overflow:hidden;background:radial-gradient(circle at 65% 28%,#e5d2a2 0 3%,transparent 4%),radial-gradient(ellipse at 50% 60%,#c6aa75 0 2%,transparent 3%),linear-gradient(145deg,#25324a,#10182a 54%,#493c38)}
+.cover:before,.cover:after{content:"";position:absolute;border:1px solid #e6d4a466;border-radius:50%;width:180px;height:180px;left:-22px;top:-14px}
+.cover:after{width:125px;height:125px;left:8px;top:14px}
+.cover-text{position:absolute;inset:auto 12px 13px;z-index:1;font-family:Georgia,serif;font-size:11px;letter-spacing:.16em;color:#f0dfb8}
+.track-info{min-width:0}
+.track-kicker{font-size:10px;color:var(--cyan);letter-spacing:.16em;font-weight:800;margin-bottom:9px}
+.track-title{font-family:Georgia,"Noto Serif JP",serif;font-size:clamp(22px,3vw,30px);font-weight:600;line-height:1.35;margin:0 0 7px}
+.track-sub{font-size:12px;color:#aab5cc;line-height:1.7}
+.track-status{display:inline-flex;align-items:center;gap:7px;font-size:10px;color:#b7c4dd;border:1px solid #384662;border-radius:999px;padding:6px 10px;margin-top:14px}
+.track-status:before{content:"";width:6px;height:6px;border-radius:50%;background:#79e1bb;box-shadow:0 0 10px #79e1bb}
+.difficulty-title{font-size:12px;color:#b7c1d5;font-weight:750;margin:28px 0 12px}
+.difficulties{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.diff-btn{border:1px solid #303b57;background:#0b1120;color:#aeb8cb;border-radius:11px;padding:12px 8px;transition:.16s;text-align:center}
+.diff-btn strong{display:block;font-size:12px;letter-spacing:.06em}
+.diff-btn small{display:block;font-size:9px;color:#7f8ba5;margin-top:5px}
+.diff-btn.active{border-color:var(--cyan);background:linear-gradient(145deg,#173341,#15203a);color:#edfdff;box-shadow:0 0 0 1px #75e4f422,inset 0 0 20px #75e4f411}
+.start-btn{margin-top:18px;width:100%;border:0;border-radius:12px;padding:16px 20px;background:linear-gradient(100deg,#68d8ec,#9a9df9);color:#08111e;font-weight:900;letter-spacing:.14em;box-shadow:0 12px 30px #75e4f42a;transition:transform .15s,filter .15s}
+.start-btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.info-list{display:grid;gap:18px}
+.info-row{display:flex;gap:14px;align-items:flex-start}
+.info-icon{width:34px;height:34px;flex:none;border:1px solid #34415e;border-radius:10px;display:grid;place-items:center;color:var(--cyan);font-size:14px}
+.info-row strong{display:block;font-size:12px;margin-bottom:5px}
+.info-row p{font-size:11px;color:#98a5bf;line-height:1.7;margin:0}
+.rule-box{border-top:1px solid #29344f;margin-top:23px;padding-top:19px}
+.rule-heading{font-size:10px;letter-spacing:.18em;color:#aab7cf;font-weight:800;margin-bottom:12px}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.rule{font-size:10px;color:#9eabc4;display:flex;justify-content:space-between;gap:8px}
+.rule b{color:#e1e8f7;font-weight:750}
+.footer{font-size:10px;color:#65718b;text-align:center;margin-top:28px;letter-spacing:.05em}
+#playScreen{position:fixed;inset:0;width:100vw;height:100dvh;background:#050711;display:none;overflow:hidden;touch-action:none}
+#gameCanvas{display:block;width:100%;height:100%;outline:none}
+#resultScreen{position:fixed;inset:0;display:none;place-items:center;padding:20px;background:#050711eF;backdrop-filter:blur(14px);z-index:5}
+.result-card{width:min(440px,100%);background:#11182a;border:1px solid #34415e;border-radius:22px;padding:30px;box-shadow:0 28px 90px #0009;text-align:center}
+.result-label{font-size:10px;letter-spacing:.24em;color:var(--cyan);font-weight:900}
+.result-state{font-size:34px;font-weight:900;letter-spacing:.08em;margin:12px 0 6px}
+.result-score{font-size:34px;font-variant-numeric:tabular-nums;font-weight:800;margin:18px 0 2px}
+.result-max{font-size:11px;color:#8f9bb5}
+.result-ratio{font-size:13px;color:#bdc8dc;margin-top:8px}
+.result-judges{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:24px 0}
+.judge-cell{background:#0a1020;border:1px solid #26314a;border-radius:9px;padding:10px 2px}
+.judge-cell b{display:block;font-size:17px;font-variant-numeric:tabular-nums}
+.judge-cell small{display:block;font-size:9px;color:#8793ac;margin-top:5px}
+.result-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.result-actions button{padding:13px 10px;border-radius:10px;border:1px solid #3b4a6b;background:#19243b;color:#edf4ff;font-weight:800;font-size:12px}
+.result-actions .primary{border:0;background:linear-gradient(100deg,#68d8ec,#9a9df9);color:#08111e}
+@media(max-width:760px){#selectScreen{padding-top:24px}.brand{margin-bottom:38px}.content-grid{grid-template-columns:1fr}.cover{width:112px}.track{gap:16px}.panel{padding:20px}.footer{margin-bottom:14px}}
+@media(max-width:390px){.difficulties{gap:5px}.diff-btn{padding:10px 3px}.diff-btn strong{font-size:10px}.cover{width:94px}.track-title{font-size:21px}.rules{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main id="selectScreen">
+  <div class="brand">
+    <div class="brand-mark">Q4</div>
+    <div><div class="brand-name">QUADRA</div><div class="brand-tag">FOUR KEYS. ONE FLOW.</div></div>
+  </div>
+  <div class="eyebrow">CLASSICAL COLLECTION · VOL. 01</div>
+  <h1>SELECT MUSIC</h1>
+  <p class="lead">4つのキーで、音の流れをつかめ。<br>プレイする楽曲と難易度を選択してください。</p>
+
+  <div class="content-grid">
+    <section class="panel">
+      <div class="panel-label">AVAILABLE TRACK / 01</div>
+      <div class="track">
+        <div class="cover"><div class="cover-text">AIR ON THE G STRING</div></div>
+        <div class="track-info">
+          <div class="track-kicker">JOHANN SEBASTIAN BACH</div>
+          <h2 class="track-title">G線上のアリア</h2>
+          <div class="track-sub">J. S. Bach · 管弦楽組曲 第3番 BWV 1068</div>
+          <div class="track-status">READY TO PLAY</div>
+        </div>
+      </div>
+      <div class="difficulty-title">SELECT DIFFICULTY</div>
+      <div class="difficulties" id="difficultyButtons">
+        <button class="diff-btn active" data-diff="NORMAL"><strong>NORMAL</strong><small>入門</small></button>
+        <button class="diff-btn" data-diff="HYPER"><strong>HYPER</strong><small>中級</small></button>
+        <button class="diff-btn" data-diff="ANOTHER"><strong>ANOTHER</strong><small>上級</small></button>
+        <button class="diff-btn" data-diff="INSANE"><strong>INSANE</strong><small>超高密度</small></button>
+      </div>
+      <button class="start-btn" id="startButton">START PLAY</button>
+    </section>
+
+    <aside class="panel">
+      <div class="panel-label">HOW TO PLAY</div>
+      <div class="info-list">
+        <div class="info-row"><div class="info-icon">⌨</div><div><strong>4-KEY CONTROL</strong><p>キーボードの F・G・H・J を使用。対応するレーンのノーツを叩きます。</p></div></div>
+        <div class="info-row"><div class="info-icon">◉</div><div><strong>STRICT JUDGEMENT</strong><p>判定幅は最良10ms。正確なタイミングが高得点につながります。</p></div></div>
+        <div class="info-row"><div class="info-icon">↗</div><div><strong>COMBO & CLEAR</strong><p>GOOD以上でコンボ継続。BAD・MISSでコンボが途切れます。</p></div></div>
+      </div>
+      <div class="rule-box">
+        <div class="rule-heading">JUDGEMENT WINDOWS</div>
+        <div class="rules">
+          <div class="rule"><b>PERFECT</b><span>±10ms · +500</span></div>
+          <div class="rule"><b>GREAT</b><span>±15ms · +400</span></div>
+          <div class="rule"><b>GOOD</b><span>±25ms · +200</span></div>
+          <div class="rule"><b>BAD</b><span>±50ms · 0</span></div>
+          <div class="rule"><b>MISS</b><span>50ms超 · −100</span></div>
+          <div class="rule"><b>CLEAR</b><span>理論値の90%以上</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <div class="footer">QUADRA 4K RHYTHM PROJECT · CLASSICAL COLLECTION</div>
+</main>
+
+<section id="playScreen" aria-label="ゲーム画面">
+  <canvas id="gameCanvas"></canvas>
+</section>
+
+<section id="resultScreen">
+  <div class="result-card">
+    <div class="result-label">PLAY RESULT</div>
+    <div class="result-state" id="resultState">CLEAR</div>
+    <div class="result-score" id="resultScore">0</div>
+    <div class="result-max" id="resultMax">MAX 0</div>
+    <div class="result-ratio" id="resultRatio">0.00%</div>
+    <div class="result-judges" id="resultJudges"></div>
+    <div class="result-actions">
+      <button id="retryButton" class="primary">RETRY</button>
+      <button id="selectButton">SELECT MUSIC</button>
+    </div>
+  </div>
+</section>
+
+<audio id="music" preload="auto" src="music/G%E7%B7%9A%E4%B8%8A%E3%81%AE%E3%82%A2%E3%83%AA%E3%82%A2.mp3"></audio>
+<script>
+(() => {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const selectScreen = $("selectScreen");
+  const playScreen = $("playScreen");
+  const resultScreen = $("resultScreen");
+  const canvas = $("gameCanvas");
+  const ctx = canvas.getContext("2d");
+  const audio = $("music");
+  const startButton = $("startButton");
+  const difficultyButtons = [...document.querySelectorAll(".diff-btn")];
+  const KEYS = ["KeyF","KeyG","KeyH","KeyJ"];
+  const KEY_LABELS = ["F","G","H","J"];
+  const WINDOWS = [
+    {name:"PERFECT",edge:10,score:500,color:"#fff1a8"},
+    {name:"GREAT",edge:15,score:400,color:"#83e8ff"},
+    {name:"GOOD",edge:25,score:200,color:"#a6a0ff"},
+    {name:"BAD",edge:50,score:0,color:"#ff9d83"},
+    {name:"MISS",edge:Infinity,score:-100,color:"#ff6689"}
+  ];
+  const PROFILES = {
+    NORMAL:{ticks:[0,8,16,24],chords:0},
+    HYPER:{ticks:[0,4,8,12,16,20,24,28],chords:0},
+    ANOTHER:{ticks:[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30],chords:0.09},
+    INSANE:{ticks:Array.from({length:32},(_,i)=>i),chords:0.20}
+  };
+  let difficulty = "NORMAL";
+  let notes = [];
+  let startAt = 0;
+  let running = false;
+  let raf = 0;
+  let score = 0;
+  let combo = 0;
+  let maxCombo = 0;
+  let judged = {PERFECT:0,GREAT:0,GOOD:0,BAD:0,MISS:0};
+  let lastJudge = null;
+  let lastJudgeAt = 0;
+  let pressed = [false,false,false,false];
+  let flashes = [0,0,0,0];
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let totalNotes = 0;
+  let duration = 180;
+  const BPM = 72; // 仮譜面用。曲に合わせた譜面調整時に更新する。
+  const BEAT = 60 / BPM;
+  const LANE_COLORS = ["#68dff2","#9c91ff","#f3a0d0","#8de0b2"];
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.round(width*dpr);
+    canvas.height = Math.round(height*dpr);
+    canvas.style.width = width+"px";
+    canvas.style.height = height+"px";
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  difficultyButtons.forEach(button => button.addEventListener("click", () => {
+    difficulty = button.dataset.diff;
+    difficultyButtons.forEach(item => item.classList.toggle("active",item===button));
+  }));
+
+  function makeChart(songDuration, level) {
+    const profile = PROFILES[level];
+    const chart = [];
+    const sequence = [0,1,2,3,2,1,0,1,2,3,1,0,3,2,1,2];
+    const bars = Math.ceil(songDuration/(BEAT*4));
+    for (let bar=0;bar<bars;bar++) {
+      for (let i=0;i<profile.ticks.length;i++) {
+        const t = 1.8 + bar*BEAT*4 + profile.ticks[i]*(BEAT/8);
+        if (t >= songDuration-0.65) continue;
+        let lane = sequence[(i+bar*3)%sequence.length];
+        if (bar%2===1 && i%4>=2) lane = 3-lane;
+        chart.push({t,lane,done:false});
+        if (profile.chords && ((bar*13+i*7)%19)/19 < profile.chords) {
+          const second = (lane+2+(bar%2))%4;
+          chart.push({t,lane:second,done:false});
+        }
+      }
+    }
+    chart.sort((a,b)=>a.t-b.t || a.lane-b.lane);
+    return chart;
+  }
+
+  function resetRun() {
+    score=0;combo=0;maxCombo=0;
+    judged={PERFECT:0,GREAT:0,GOOD:0,BAD:0,MISS:0};
+    lastJudge=null;lastJudgeAt=0;
+    pressed=[false,false,false,false];
+    flashes=[0,0,0,0];
+  }
+
+  async function startGame() {
+    cancelAnimationFrame(raf);
+    audio.pause();
+    audio.currentTime=0;
+    resetRun();
+    notes=[];
+    totalNotes=0;
+    resultScreen.style.display="none";
+    selectScreen.style.display="none";
+    playScreen.style.display="block";
+    resize();
+    try { if (playScreen.requestFullscreen) playScreen.requestFullscreen().catch(()=>{}); } catch (_) {}
+    try {
+      const playPromise = audio.play();
+      await playPromise;
+      duration = Number.isFinite(audio.duration) ? audio.duration : 180;
+      notes = makeChart(duration,difficulty);
+      totalNotes=notes.length;
+      startAt=performance.now();
+      running=true;
+      raf=requestAnimationFrame(gameLoop);
+    } catch (error) {
+      running=false;
+      audio.pause();
+      playScreen.style.display="none";
+      selectScreen.style.display="block";
+      alert("音源を再生できませんでした。musicフォルダの音源ファイルを確認してください。");
+      console.error(error);
+    }
+  }
+
+  function registerJudgement(name) {
+    const result = WINDOWS.find(item=>item.name===name);
+    judged[name]++;
+    score += result.score;
+    lastJudge=name;
+    lastJudgeAt=performance.now();
+    if (name==="BAD" || name==="MISS") combo=0;
+    else { combo++; maxCombo=Math.max(maxCombo,combo); }
+  }
+
+  function hit(lane) {
+    if (!running) return;
+    const elapsed=(performance.now()-startAt)/1000;
+    let target=null;
+    let best=Infinity;
+    for (const note of notes) {
+      if (note.done || note.lane!==lane) continue;
+      const delta=Math.abs(elapsed-note.t);
+      if (delta<best) { best=delta;target=note; }
+      if (note.t>elapsed+0.05 && delta>best) break;
+    }
+    if (!target || best>0.05) return;
+    target.done=true;
+    const ms=best*1000;
+    const judgement=WINDOWS.find(item=>ms<=item.edge);
+    registerJudgement(judgement.name);
+    flashes[lane]=performance.now()+100;
+  }
+
+  function missExpired(elapsed) {
+    for (const note of notes) {
+      if (!note.done && elapsed-note.t>0.05) {
+        note.done=true;
+        registerJudgement("MISS");
+      }
+    }
+  }
+
+  function roundRect(x,y,w,h,r) {
+    const radius=Math.min(r,w/2,h/2);
+    ctx.beginPath();
+    ctx.moveTo(x+radius,y);
+    ctx.arcTo(x+w,y,x+w,y+h,radius);
+    ctx.arcTo(x+w,y+h,x,y+h,radius);
+    ctx.arcTo(x,y+h,x,y,radius);
+    ctx.arcTo(x,y,x+w,y,radius);
+    ctx.closePath();
+  }
+
+  function draw(elapsed) {
+    ctx.clearRect(0,0,width,height);
+    ctx.fillStyle="#050711";
+    ctx.fillRect(0,0,width,height);
+    const laneW=width/4;
+    const hitY=height*0.835;
+    const noteSpeed=height*0.47;
+    for (let lane=0;lane<4;lane++) {
+      const x=lane*laneW;
+      ctx.fillStyle=lane%2===0?"#0b1120":"#0d1425";
+      ctx.fillRect(x,0,laneW,height);
+      ctx.fillStyle="#18233a";
+      ctx.fillRect(x,0,1,height);
+      ctx.fillStyle=LANE_COLORS[lane];
+      ctx.globalAlpha=0.04;
+      ctx.fillRect(x+2,0,laneW-4,height);
+      ctx.globalAlpha=1;
+      if (pressed[lane] || flashes[lane]>performance.now()) {
+        ctx.fillStyle=LANE_COLORS[lane];
+        ctx.globalAlpha=pressed[lane]?0.17:0.10;
+        ctx.fillRect(x+2,hitY-height*0.06,laneW-4,height*0.18);
+        ctx.globalAlpha=1;
+      }
+    }
+    // faint lane guides
+    for (let y=height*0.1;y<hitY;y+=height*0.1) {
+      ctx.strokeStyle="#ffffff0b";
+      ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(width,y);ctx.stroke();
+    }
+    // falling notes
+    const noteH=Math.max(11,Math.min(23,height*0.022));
+    for (const note of notes) {
+      if (note.done) continue;
+      const y=hitY-(note.t-elapsed)*noteSpeed-noteH/2;
+      if (y < -noteH || y > height+noteH) continue;
+      const pad=Math.max(5,laneW*0.09);
+      const x=note.lane*laneW+pad;
+      const w=laneW-pad*2;
+      ctx.save();
+      ctx.shadowColor=LANE_COLORS[note.lane];
+      ctx.shadowBlur=12;
+      const gradient=ctx.createLinearGradient(x,y,x+w,y+noteH);
+      gradient.addColorStop(0,"#ffffff");
+      gradient.addColorStop(.22,LANE_COLORS[note.lane]);
+      gradient.addColorStop(1,LANE_COLORS[note.lane]);
+      ctx.fillStyle=gradient;
+      roundRect(x,y,w,noteH,noteH/2);
+      ctx.fill();
+      ctx.restore();
+    }
+    // hit line and lane keycaps
+    ctx.fillStyle="#eafaff";
+    ctx.shadowColor="#75e4f4";
+    ctx.shadowBlur=18;
+    ctx.fillRect(0,hitY,width,2);
+    ctx.shadowBlur=0;
+    for (let lane=0;lane<4;lane++) {
+      const x=lane*laneW;
+      ctx.fillStyle=pressed[lane]?LANE_COLORS[lane]:"#18243a";
+      roundRect(x+laneW*.2,hitY+height*.025,laneW*.6,Math.max(24,height*.042),8);
+      ctx.fill();
+      ctx.fillStyle=pressed[lane]?"#08111e":"#aab8d2";
+      ctx.font="800 "+Math.max(12,Math.min(18,height*.019))+"px system-ui";
+      ctx.textAlign="center";ctx.textBaseline="middle";
+      ctx.fillText(KEY_LABELS[lane],x+laneW/2,hitY+height*.046);
+    }
+    // minimal in-game information only
+    ctx.textAlign="left";
+    ctx.textBaseline="top";
+    ctx.fillStyle="#a5b2cb";
+    ctx.font="700 10px system-ui";
+    ctx.fillText("SCORE",Math.max(16,width*.035),Math.max(16,height*.035));
+    ctx.fillStyle="#f1f6ff";
+    ctx.font="800 "+Math.max(18,Math.min(28,height*.033))+"px system-ui";
+    ctx.fillText(score.toLocaleString("en-US"),Math.max(16,width*.035),Math.max(30,height*.055));
+    if (combo>0) {
+      ctx.textAlign="right";
+      ctx.fillStyle="#9deefa";
+      ctx.font="800 "+Math.max(22,Math.min(38,height*.045))+"px system-ui";
+      ctx.fillText(combo.toLocaleString("en-US"),width-Math.max(16,width*.035),Math.max(16,height*.035));
+      ctx.fillStyle="#8b9bb8";
+      ctx.font="700 10px system-ui";
+      ctx.fillText("COMBO",width-Math.max(16,width*.035),Math.max(48,height*.075));
+    }
+    if (lastJudge && performance.now()-lastJudgeAt<520) {
+      const fade=1-(performance.now()-lastJudgeAt)/520;
+      const item=WINDOWS.find(j=>j.name===lastJudge);
+      ctx.save();
+      ctx.globalAlpha=Math.max(0,fade);
+      ctx.textAlign="center";ctx.textBaseline="middle";
+      ctx.fillStyle=item.color;
+      ctx.shadowColor=item.color;ctx.shadowBlur=18;
+      ctx.font="900 "+Math.max(24,Math.min(42,height*.052))+"px system-ui";
+      ctx.fillText(lastJudge,width/2,hitY-height*.10);
+      ctx.restore();
+    }
+  }
+
+  function gameLoop() {
+    if (!running) return;
+    const elapsed=(performance.now()-startAt)/1000;
+    missExpired(elapsed);
+    draw(elapsed);
+    if (elapsed >= duration-0.1 || notes.every(note=>note.done)) {
+      finishGame();
+      return;
+    }
+    raf=requestAnimationFrame(gameLoop);
+  }
+
+  function finishGame(aborted=false) {
+    if (!running && !aborted) return;
+    running=false;
+    cancelAnimationFrame(raf);
+    audio.pause();
+    try { if (document.fullscreenElement) document.exitFullscreen().catch(()=>{}); } catch (_) {}
+    if (aborted) {
+      playScreen.style.display="none";
+      selectScreen.style.display="block";
+      return;
+    }
+    const theoretical=totalNotes*500;
+    const ratio=theoretical>0?score/theoretical*100:0;
+    const clear=theoretical>0 && score>=theoretical*0.9;
+    $("resultState").textContent=clear?"CLEAR":"FAILED";
+    $("resultState").style.color=clear?"#83e8c1":"#ff8da7";
+    $("resultScore").textContent=score.toLocaleString("en-US");
+    $("resultMax").textContent="MAX "+theoretical.toLocaleString("en-US");
+    $("resultRatio").textContent="THEORETICAL SCORE "+ratio.toFixed(2)+"%";
+    $("resultJudges").innerHTML=["PERFECT","GREAT","GOOD","BAD","MISS"].map(name=>{
+      return '<div class="judge-cell"><b>'+judged[name]+'</b><small>'+name+'</small></div>';
+    }).join("");
+    resultScreen.style.display="grid";
+  }
+
+  window.addEventListener("keydown",event=>{
+    if (event.code==="Escape" && running) {
+      finishGame(true);
+      return;
+    }
+    const lane=KEYS.indexOf(event.code);
+    if (lane<0 || event.repeat) return;
+    event.preventDefault();
+    pressed[lane]=true;
+    hit(lane);
+  });
+  window.addEventListener("keyup",event=>{
+    const lane=KEYS.indexOf(event.code);
+    if (lane>=0) pressed[lane]=false;
+  });
+  window.addEventListener("blur",()=>{pressed=[false,false,false,false];});
+
+  startButton.addEventListener("click",startGame);
+  $("retryButton").addEventListener("click",startGame);
+  $("selectButton").addEventListener("click",()=>{
+    resultScreen.style.display="none";
+    playScreen.style.display="none";
+    selectScreen.style.display="block";
+  });
+})();
+</script>
+</body>
+</html>
