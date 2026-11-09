@@ -10,6 +10,8 @@
 - Select a chart difficulty and judgement mode, then press **START PLAY**.
 - Hi-Speed: choose ×0.5–×5.0 on the selection screen; use `↑` / `↓` during play to adjust by 0.1.
 - Press `Esc` during play to return to music selection.
+- HOLD notes: press at the start and keep the same key held until the tail reaches the judgement line. Releasing early breaks the hold and counts as MISS.
+- Chart files are JSON under `charts/`; each difficulty has explicit beat/lane/type events. Use `type: "hold"` with `durationBeats` for a hold.
 
 ## Judgement and score
 
