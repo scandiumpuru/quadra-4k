@@ -9,7 +9,7 @@
   const ctx = canvas.getContext("2d");
   const audio = $("music");
   const startButton = $("startButton");
-  const difficultyButtons = [...document.querySelectorAll(".diff-btn")];
+  const difficultyButtons = [...document.querySelectorAll("#difficultyButtons .diff-btn")];
   const KEYS = ["KeyF","KeyG","KeyH","KeyJ"];
   const KEY_LABELS = ["F","G","H","J"];
   const WINDOWS = [
