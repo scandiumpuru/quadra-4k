@@ -53,6 +53,13 @@ This is a first playable draft, not a transcription synchronized to the recordin
 
 ## La Campanella chart
 
-Liszt's `ラ・カンパネラ` chart is stored at `charts/la-campanella.json`. It is authored as twenty distinct 32-beat sections (640 beats total) with no automatic repetition or lane rotation. The new version emphasizes long and medium HOLD anchors, hold-constrained staircases across the other lanes, adjacent-lane trills, syncopated fragments, broken-arpeggio leaps, and changing phrase contours.
+Liszt's `ラ・カンパネラ` chart is stored at `charts/la-campanella.json`. It is a single non-repeating 640-beat chart split into twenty distinct 32-beat sections. The new version emphasizes medium/long HOLD anchors (about one-third of all notes), hold-constrained staircases across other lanes, adjacent-lane trills, syncopated fragments, broken-arpeggio leaps, and changing phrase contours. There is no automatic phrase loop or lane rotation.
 
-The BPM (120) and offset (0.35 seconds) are provisional and must be calibrated against the exact MP3 recording. HOLDs count as one chart note and are judged when released at the tail.
+| Difficulty | Events | HOLD |
+|---|---:|---:|
+| NORMAL | 367 | 120 |
+| HYPER | 489 | 160 |
+| ANOTHER | 613 | 199 |
+| INSANE | 703 | 239 |
+
+The BPM (120) and offset (0.35 seconds) are provisional and must be calibrated against the exact MP3 recording. HOLDs count as one chart note and receive their judgement when released at the tail.
