@@ -49,3 +49,8 @@ The site will be served from the root `index.html`.
 The current chart is `charts/g-string-air.json`. It defines BPM, offset, a repeating 16-beat phrase, and explicit events for each difficulty. Each event uses `beat`, `lane` (0–3), and `type` (`tap` or `hold`). HOLD events also require `durationBeats`. The phrase currently repeats with a one-lane rotation on each repeat.
 
 This is a first playable draft, not a transcription synchronized to the recording. BPM, offset, phrase repetitions, and individual events should be calibrated against the actual recording before treating it as a final chart.
+
+
+## La Campanella chart
+
+The selection screen now includes Liszt's `ラ・カンパネラ`. Its chart is stored separately at `charts/la-campanella.json` and is a single non-repeating 640-beat sequence. It uses long HOLDs, hold-constrained staircases across the other lanes, adjacent-lane trill bursts, syncopated runs, and changing section density. The current 120 BPM and 0.35-second offset are provisional and must be calibrated against the exact MP3 recording.
