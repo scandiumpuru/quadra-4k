@@ -330,7 +330,8 @@
     }
     const theoretical=totalNotes*500;
     const ratio=theoretical>0?score/theoretical*100:0;
-    const clear=theoretical>0 && score>=theoretical*0.9;
+    const clearThreshold = {EASY:0.75,NORMAL:0.85,HARD:0.90}[judgeMode];
+    const clear=theoretical>0 && score>=theoretical*clearThreshold;
     $("resultState").textContent=clear?"CLEAR":"FAILED";
     $("resultState").style.color=clear?"#83e8c1":"#ff8da7";
     $("resultScore").textContent=score.toLocaleString("en-US");
