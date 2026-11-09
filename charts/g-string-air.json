@@ -1,0 +1,735 @@
+{
+  "title": "G線上のアリア",
+  "version": 1,
+  "bpm": 72,
+  "offsetSeconds": 1.8,
+  "patternBeats": 16,
+  "repeatLaneShift": 1,
+  "laneCount": 4,
+  "lanes": [
+    "F",
+    "G",
+    "H",
+    "J"
+  ],
+  "noteTypes": {
+    "tap": "1回押す通常ノーツ",
+    "hold": "開始で押し、終点まで押し続ける"
+  },
+  "difficulties": {
+    "NORMAL": {
+      "events": [
+        {
+          "beat": 0,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 1,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 2,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 3,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 4,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 6,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 7,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 8,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 9,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 10,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 11,
+          "lane": 0,
+          "type": "hold",
+          "durationBeats": 2
+        },
+        {
+          "beat": 13,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 14,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 15,
+          "lane": 3,
+          "type": "tap"
+        }
+      ]
+    },
+    "HYPER": {
+      "events": [
+        {
+          "beat": 0,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 0.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 1,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 1.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 2,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 2.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 3,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 3.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 4,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 4.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 5.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 6,
+          "lane": 0,
+          "type": "hold",
+          "durationBeats": 2
+        },
+        {
+          "beat": 6.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 8,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 8.5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 9,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 9.5,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 10,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 10.5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 11,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 11.5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 12,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 12.5,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 13,
+          "lane": 1,
+          "type": "hold",
+          "durationBeats": 2
+        },
+        {
+          "beat": 13.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 15,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 15.5,
+          "lane": 3,
+          "type": "tap"
+        }
+      ]
+    },
+    "ANOTHER": {
+      "events": [
+        {
+          "beat": 0,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 0.25,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 0.5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 0.75,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 1,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 1.5,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 2,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 2.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 3,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 3.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 4,
+          "lane": 0,
+          "type": "hold",
+          "durationBeats": 2
+        },
+        {
+          "beat": 4.5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 5.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 6,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 6.5,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 7,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 7.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 8,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 8.25,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 8.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 8.75,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 9,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 9.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 10,
+          "lane": 2,
+          "type": "hold",
+          "durationBeats": 2.5
+        },
+        {
+          "beat": 10.5,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 11,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 11.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 12,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 12.5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 13,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 13.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 14,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 14.5,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 15,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 15.5,
+          "lane": 3,
+          "type": "tap"
+        }
+      ]
+    },
+    "INSANE": {
+      "events": [
+        {
+          "beat": 0,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 0.25,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 0.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 0.75,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 1,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 1,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 1.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 1.75,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 2,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 2.25,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 2.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 2.75,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 3,
+          "lane": 0,
+          "type": "hold",
+          "durationBeats": 2
+        },
+        {
+          "beat": 3,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 3.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 4,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 4.25,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 4.5,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 4.75,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 5.25,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 5.5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 5.75,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 6,
+          "lane": 3,
+          "type": "hold",
+          "durationBeats": 2.5
+        },
+        {
+          "beat": 6,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 6.5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 6.75,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 8,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 8.25,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 8.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 8.75,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 9,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 9,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 9.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 9.75,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 10,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 10.25,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 10.5,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 10.75,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 11,
+          "lane": 2,
+          "type": "hold",
+          "durationBeats": 2
+        },
+        {
+          "beat": 11,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 11.5,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 11.75,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 12,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 12.25,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 12.5,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 12.75,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 13,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 13.25,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 13.5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 13.75,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 14,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 14.25,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 14.5,
+          "lane": 0,
+          "type": "tap"
+        },
+        {
+          "beat": 14.75,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 15,
+          "lane": 3,
+          "type": "tap"
+        },
+        {
+          "beat": 15.25,
+          "lane": 1,
+          "type": "tap"
+        },
+        {
+          "beat": 15.5,
+          "lane": 2,
+          "type": "tap"
+        },
+        {
+          "beat": 15.75,
+          "lane": 0,
+          "type": "tap"
+        }
+      ]
+    }
+  }
+}
