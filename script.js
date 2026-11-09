@@ -47,7 +47,12 @@
   let duration = 180;
   let BPM = 72;
   let BEAT = 60 / BPM;
-  const CHART_URL = "charts/g-string-air.json";
+  const TRACKS = {
+    aria:{title:"G線上のアリア",audio:"music/G%E7%B7%9A%E4%B8%8A%E3%81%AE%E3%82%A2%E3%83%AA%E3%82%A2.mp3",chart:"charts/g-string-air.json"},
+    campanella:{title:"ラ・カンパネラ",audio:"music/%E3%83%A9%E3%83%BB%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8D%E3%83%A9.mp3",chart:"charts/la-campanella.json"}
+  };
+  let selectedTrack = "aria";
+  const trackButtons = [...document.querySelectorAll(".track-choice")];
   const LANE_COLORS = ["#68dff2","#9c91ff","#f3a0d0","#8de0b2"];
 
   function resize() {
@@ -89,8 +94,19 @@
     difficultyButtons.forEach(item => item.classList.toggle("active",item===button));
   }));
 
+  trackButtons.forEach(button => button.addEventListener("click", () => {
+    selectedTrack = button.dataset.track;
+    trackButtons.forEach(item => {
+      const selected = item === button;
+      item.classList.toggle("active", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+    audio.src = TRACKS[selectedTrack].audio;
+    audio.load();
+  }));
+
   async function loadChart() {
-    const response = await fetch(CHART_URL, {cache:"no-cache"});
+    const response = await fetch(TRACKS[selectedTrack].chart, {cache:"no-cache"});
     if (!response.ok) throw new Error("譜面JSONを読み込めません: " + response.status);
     const data = await response.json();
     if (!data || !Number.isFinite(data.bpm) || !data.difficulties) {
@@ -110,7 +126,7 @@
     const offset = Number(chartData.offsetSeconds || 0);
     const shift = Number(chartData.repeatLaneShift || 0);
     const chart = [];
-    const repeats = Math.ceil(Math.max(0, songDuration-offset) / (patternBeats*BEAT));
+    const repeats = chartData.repeatPattern === false ? 1 : Math.ceil(Math.max(0, songDuration-offset) / (patternBeats*BEAT));
     for (let repeat=0; repeat<repeats; repeat++) {
       for (const event of difficultyChart.events) {
         const t = offset + (repeat*patternBeats + event.beat)*BEAT;
@@ -129,7 +145,7 @@
         chart.push({
           t,
           endT,
-          lane:(event.lane + repeat*shift)%4,
+          lane:(event.lane + (chartData.repeatPattern === false ? 0 : repeat*shift))%4,
           type:event.type,
           done:false,
           started:false,
@@ -382,7 +398,7 @@
     const elapsed=(performance.now()-startAt)/1000;
     missExpired(elapsed);
     draw(elapsed);
-    if (elapsed >= duration-0.1 || notes.every(note=>note.done)) {
+    if (elapsed >= duration-0.1) {
       finishGame();
       return;
     }
