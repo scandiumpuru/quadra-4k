@@ -42,6 +42,15 @@
         <div class="speed-range"><span>×0.5</span><span>×5.0</span></div>
         <p>プレイ中は ↑ / ↓ キーでも調整できます。</p>
       </div>
+      <div class="judge-control">
+        <div class="judge-control-heading">JUDGEMENT TYPE</div>
+        <div class="judge-options" id="judgeOptions">
+          <button class="judge-option" data-judge="EASY"><strong>甘口</strong><small>判定幅 2.0倍</small></button>
+          <button class="judge-option active" data-judge="NORMAL"><strong>普通</strong><small>判定幅 1.5倍</small></button>
+          <button class="judge-option" data-judge="HARD"><strong>辛口</strong><small>従来どおり</small></button>
+        </div>
+        <p id="judgeDescription">標準的な判定幅。初めてのプレイにおすすめ。</p>
+      </div>
       <button class="start-btn" id="startButton">START PLAY</button>
     </section>
 
