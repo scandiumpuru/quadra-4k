@@ -19,15 +19,26 @@
 
   <div class="content-grid">
     <section class="panel">
-      <div class="panel-label">AVAILABLE TRACK / 01</div>
-      <div class="track">
-        <div class="cover"><div class="cover-text">AIR ON THE G STRING</div></div>
-        <div class="track-info">
-          <div class="track-kicker">JOHANN SEBASTIAN BACH</div>
-          <h2 class="track-title">G線上のアリア</h2>
-          <div class="track-sub">J. S. Bach · 管弦楽組曲 第3番 BWV 1068</div>
-          <div class="track-status">READY TO PLAY</div>
-        </div>
+      <div class="panel-label">SELECT TRACK</div>
+      <div class="track-list" id="trackList">
+        <button type="button" class="track-choice active" data-track="aria" aria-pressed="true">
+          <span class="cover"><span class="cover-text">AIR ON THE G STRING</span></span>
+          <span class="track-info">
+            <span class="track-kicker">JOHANN SEBASTIAN BACH</span>
+            <span class="track-title">G線上のアリア</span>
+            <span class="track-sub">J. S. Bach · 管弦楽組曲 第3番 BWV 1068</span>
+            <span class="track-status">READY TO PLAY</span>
+          </span>
+        </button>
+        <button type="button" class="track-choice" data-track="campanella" aria-pressed="false">
+          <span class="cover cover-camp"><span class="cover-text">LA CAMPANELLA</span></span>
+          <span class="track-info">
+            <span class="track-kicker">FRANZ LISZT</span>
+            <span class="track-title">ラ・カンパネラ</span>
+            <span class="track-sub">Liszt · Grandes études de Paganini, S.141 No.3</span>
+            <span class="track-status">READY TO PLAY</span>
+          </span>
+        </button>
       </div>
       <div class="difficulty-title">SELECT DIFFICULTY</div>
       <div class="difficulties" id="difficultyButtons">
