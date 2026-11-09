@@ -44,8 +44,8 @@ In the repository settings, open **Pages**, choose **Deploy from a branch**,
 select the `main` branch and the `/(root)` folder, then save.
 The site will be served from the root `index.html`.
 
-## Development note
+## Chart JSON format
 
-The current chart is a provisional generated layout using a 72 BPM grid.
-Its note timings and patterns still need to be authored and calibrated against
-the actual recording before treating it as a final chart.
+The current chart is `charts/g-string-air.json`. It defines BPM, offset, a repeating 16-beat phrase, and explicit events for each difficulty. Each event uses `beat`, `lane` (0–3), and `type` (`tap` or `hold`). HOLD events also require `durationBeats`. The phrase currently repeats with a one-lane rotation on each repeat.
+
+This is a first playable draft, not a transcription synchronized to the recording. BPM, offset, phrase repetitions, and individual events should be calibrated against the actual recording before treating it as a final chart.
