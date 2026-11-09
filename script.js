@@ -26,6 +26,9 @@
     INSANE:{ticks:Array.from({length:32},(_,i)=>i),chords:0.20}
   };
   let difficulty = "NORMAL";
+  const JUDGE_PRESETS = {EASY:{label:"甘口",multiplier:2.0,description:"判定幅が従来の2倍。タイミングを合わせやすい設定。"},NORMAL:{label:"普通",multiplier:1.5,description:"判定幅が従来の1.5倍。標準的なおすすめ設定。"},HARD:{label:"辛口",multiplier:1.0,description:"従来どおりの判定幅。高い精度が求められる設定。"}};
+  let judgeMode = "NORMAL";
+  const judgeButtons = [...document.querySelectorAll(".judge-option")];
   let speedMultiplier = 1.0;
   const speedSlider = $("speedSlider");
   const speedValue = $("speedValue");
@@ -69,6 +72,16 @@
     speedValue.textContent = "×" + speedMultiplier.toFixed(1);
   }
   speedSlider.addEventListener("input", () => setSpeed(Number(speedSlider.value)));
+
+  judgeButtons.forEach(button => button.addEventListener("click", () => {
+    judgeMode = button.dataset.judge;
+    judgeButtons.forEach(item => item.classList.toggle("active", item === button));
+    $("judgeDescription").textContent = JUDGE_PRESETS[judgeMode].description;
+  }));
+
+  function activeJudgeWindow(baseMs) {
+    return baseMs * JUDGE_PRESETS[judgeMode].multiplier;
+  }
 
   difficultyButtons.forEach(button => button.addEventListener("click", () => {
     difficulty = button.dataset.diff;
@@ -155,19 +168,19 @@
       if (note.done || note.lane!==lane) continue;
       const delta=Math.abs(elapsed-note.t);
       if (delta<best) { best=delta;target=note; }
-      if (note.t>elapsed+0.05 && delta>best) break;
+      if (note.t>elapsed+activeJudgeWindow(50)/1000 && delta>best) break;
     }
-    if (!target || best>0.05) return;
+    if (!target || best>activeJudgeWindow(50)/1000) return;
     target.done=true;
     const ms=best*1000;
-    const judgement=WINDOWS.find(item=>ms<=item.edge);
+    const judgement=WINDOWS.find(item=>ms<=activeJudgeWindow(item.edge));
     registerJudgement(judgement.name);
     flashes[lane]=performance.now()+100;
   }
 
   function missExpired(elapsed) {
     for (const note of notes) {
-      if (!note.done && elapsed-note.t>0.05) {
+      if (!note.done && elapsed-note.t>activeJudgeWindow(50)/1000) {
         note.done=true;
         registerJudgement("MISS");
       }
@@ -264,7 +277,7 @@
     ctx.textAlign="center";
     ctx.fillStyle="#9deefa";
     ctx.font="800 12px system-ui";
-    ctx.fillText("HI-SPEED ×"+speedMultiplier.toFixed(1),width/2,Math.max(17,height*.035));
+    ctx.fillText("HI-SPEED ×"+speedMultiplier.toFixed(1)+"  ·  "+JUDGE_PRESETS[judgeMode].label,width/2,Math.max(17,height*.035));
     if (combo>0) {
       ctx.textAlign="right";
       ctx.fillStyle="#9deefa";
