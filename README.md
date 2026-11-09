@@ -26,8 +26,15 @@
 The default judgement mode is **Normal**. The judgement mode changes timing windows only; scoring and combo rules remain unchanged.
 
 GOOD and above continue the combo. BAD and MISS break it.
-The clear condition is a score of at least 90% of the theoretical maximum
-(number of notes × 500).
+The clear condition depends on the selected judgement mode:
+
+| Judgement mode | Clear threshold |
+|---|---:|
+| Easy (甘口) | 75% or more |
+| Normal (普通) | 85% or more |
+| Hard (辛口) | 90% or more |
+
+The threshold is calculated against the theoretical maximum (number of notes × 500).
 
 ## GitHub Pages
 
