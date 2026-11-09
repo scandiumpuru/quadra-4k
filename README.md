@@ -7,18 +7,23 @@
 - Entry point: `index.html`
 - Current track: `music/G線上のアリア.mp3`
 - Keys: `F`, `G`, `H`, `J`
-- Select a difficulty, then press **START PLAY**.
+- Select a chart difficulty and judgement mode, then press **START PLAY**.
+- Hi-Speed: choose ×0.5–×5.0 on the selection screen; use `↑` / `↓` during play to adjust by 0.1.
 - Press `Esc` during play to return to music selection.
 
 ## Judgement and score
 
 | Judgement | Timing window | Score |
 |---|---:|---:|
-| PERFECT | ±10 ms | +500 |
-| GREAT | ±15 ms | +400 |
-| GOOD | ±25 ms | +200 |
-| BAD | ±50 ms | 0 |
-| MISS | over 50 ms | -100 |
+| Judgement | Easy (×2.0) | Normal (×1.5) | Hard (×1.0) | Score |
+|---|---:|---:|---:|---:|
+| PERFECT | ±20 ms | ±15 ms | ±10 ms | +500 |
+| GREAT | ±30 ms | ±22.5 ms | ±15 ms | +400 |
+| GOOD | ±50 ms | ±37.5 ms | ±25 ms | +200 |
+| BAD | ±100 ms | ±75 ms | ±50 ms | 0 |
+| MISS | over 100 ms | over 75 ms | over 50 ms | -100 |
+
+The default judgement mode is **Normal**. The judgement mode changes timing windows only; scoring and combo rules remain unchanged.
 
 GOOD and above continue the combo. BAD and MISS break it.
 The clear condition is a score of at least 90% of the theoretical maximum
