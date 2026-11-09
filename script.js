@@ -26,6 +26,9 @@
     INSANE:{ticks:Array.from({length:32},(_,i)=>i),chords:0.20}
   };
   let difficulty = "NORMAL";
+  let speedMultiplier = 1.0;
+  const speedSlider = $("speedSlider");
+  const speedValue = $("speedValue");
   let notes = [];
   let startAt = 0;
   let running = false;
@@ -59,6 +62,13 @@
   }
   window.addEventListener("resize", resize);
   resize();
+
+  function setSpeed(value) {
+    speedMultiplier = Math.max(0.5, Math.min(5, Math.round(value*10)/10));
+    speedSlider.value = speedMultiplier.toFixed(1);
+    speedValue.textContent = "×" + speedMultiplier.toFixed(1);
+  }
+  speedSlider.addEventListener("input", () => setSpeed(Number(speedSlider.value)));
 
   difficultyButtons.forEach(button => button.addEventListener("click", () => {
     difficulty = button.dataset.diff;
@@ -181,7 +191,7 @@
     ctx.fillRect(0,0,width,height);
     const laneW=width/4;
     const hitY=height*0.835;
-    const noteSpeed=height*0.47;
+    const noteSpeed=height*0.47*speedMultiplier;
     for (let lane=0;lane<4;lane++) {
       const x=lane*laneW;
       ctx.fillStyle=lane%2===0?"#0b1120":"#0d1425";
@@ -251,6 +261,10 @@
     ctx.fillStyle="#f1f6ff";
     ctx.font="800 "+Math.max(18,Math.min(28,height*.033))+"px system-ui";
     ctx.fillText(score.toLocaleString("en-US"),Math.max(16,width*.035),Math.max(30,height*.055));
+    ctx.textAlign="center";
+    ctx.fillStyle="#9deefa";
+    ctx.font="800 12px system-ui";
+    ctx.fillText("HI-SPEED ×"+speedMultiplier.toFixed(1),width/2,Math.max(17,height*.035));
     if (combo>0) {
       ctx.textAlign="right";
       ctx.fillStyle="#9deefa";
@@ -312,6 +326,11 @@
   }
 
   window.addEventListener("keydown",event=>{
+    if (running && (event.code==="ArrowUp" || event.code==="ArrowDown")) {
+      event.preventDefault();
+      setSpeed(speedMultiplier + (event.code==="ArrowUp" ? 0.1 : -0.1));
+      return;
+    }
     if (event.code==="Escape" && running) {
       finishGame(true);
       return;
