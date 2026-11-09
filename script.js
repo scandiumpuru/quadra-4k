@@ -75,8 +75,12 @@
 
   judgeButtons.forEach(button => button.addEventListener("click", () => {
     judgeMode = button.dataset.judge;
-    judgeButtons.forEach(item => item.classList.toggle("active", item === button));
-    $("judgeDescription").textContent = JUDGE_PRESETS[judgeMode].description;
+    judgeButtons.forEach(item => {
+      const selected = item === button;
+      item.classList.toggle("active", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+    $("judgeDescription").textContent = JUDGE_PRESETS[judgeMode].label + "：" + JUDGE_PRESETS[judgeMode].description;
   }));
 
   function activeJudgeWindow(baseMs) {
