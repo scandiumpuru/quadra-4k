@@ -49,7 +49,7 @@
   let BEAT = 60 / BPM;
   const TRACKS = {
     aria:{title:"G線上のアリア",audio:"music/G%E7%B7%9A%E4%B8%8A%E3%81%AE%E3%82%A2%E3%83%AA%E3%82%A2.mp3",chart:"charts/g-string-air.json"},
-    campanella:{title:"ラ・カンパネラ",audio:"music/%E3%83%A9%E3%83%BB%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8D%E3%83%A9.mp3",chart:"charts/la-campanella.json"}
+    campanella:{title:"ラ・カンパネラ",audio:"music/%E3%83%A9%E3%83%BB%E3%82%AB%E3%83%B3%E3%83%8F%E3%82%9A%E3%83%8D%E3%83%A9.mp3",chart:"charts/la-campanella.json"}
   };
   let selectedTrack = "aria";
   const trackButtons = [...document.querySelectorAll(".track-choice")];
